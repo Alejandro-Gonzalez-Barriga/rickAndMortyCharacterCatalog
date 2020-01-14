@@ -41,7 +41,9 @@ class App extends React.Component {
       const response = await fetch(
         `https://rickandmortyapi.com/api/character/?page=${this.state.nextPage}`
       );
+      //console.log(response);
       const data = await response.json();
+      //console.log(data);
 
       this.setState({
         loading: false,
@@ -51,6 +53,8 @@ class App extends React.Component {
         },
         nextPage: this.state.nextPage + 1
       });
+      //console.log(data.info);
+      //console.log(this.state.data.results);
     } catch (error) {
       this.setState({ loading: false, error: error });
     }
